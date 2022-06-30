@@ -45,6 +45,10 @@ open class DrawingToolForShapeWithTwoPoints: DrawingTool {
   public func handleDragEnd(context: ToolOperationContext, point: CGPoint) {
     guard var shape = shapeInProgress else { return }
     shape.b = point
+  if (shape.a.distance(to: point) < 20) {
+      shape.a = CGPoint(x: point.x - 25, y: point.y - 25 )
+      shape.b = CGPoint(x: point.x + 25, y: point.y + 25 )
+  }
     context.operationStack.apply(operation: AddShapeOperation(shape: shape))
     shapeInProgress = nil
   }

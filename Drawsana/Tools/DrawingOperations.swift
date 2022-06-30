@@ -5,6 +5,7 @@
 //  Created by Steve Landey on 8/6/18.
 //  Copyright © 2018 Asana. All rights reserved.
 //
+import SwiftUI
 
 import CoreGraphics
 
@@ -160,4 +161,3 @@ public struct ChangeExplicitWidthOperation: DrawingOperation {
     drawing.update(shape: shape)
   }
 }
-
