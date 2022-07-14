@@ -44,7 +44,7 @@ public class Drawing: Codable {
    This is needed because there is no way to use `Decodable` with a dynamic
    list of types.
    */
-  public var shapeDecoder: ((MultiDecoder<Shape>) -> Void)?
+  public static var shapeDecoder: ((MultiDecoder<Shape>) -> Void)?
 
   public init(size: CGSize) {
     self.size = size
@@ -114,7 +114,7 @@ public class Drawing: Codable {
     try multiDecoder.decode(TextShape.self)
     try multiDecoder.decode(StarShape.self)
     try multiDecoder.decode(NgonShape.self)
-    shapeDecoder?(multiDecoder)
+      Drawing.shapeDecoder?(multiDecoder)
     container = multiDecoder.container
     return multiDecoder.results
   }
